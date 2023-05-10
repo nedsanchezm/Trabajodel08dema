@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="miFormulario">
+        <input type="number" id="numero1" required>
+        <input type="number" id="numero2" required>
+        <button type="submit">+</button>
+    </form>
+    <div id="resultado">
+    </div>
+    <script>
+        
+        document.getElementById('miFormulario').addEventListener(
+            'submit',
+            async (event)=>{
+                
+                event.preventDefault()
+
+                let numero1= parseFloat(document.getElementById('numero1').value)
+                let numero2= parseFloat(document.getElementById('numero2').value)
+
+                let respuesta= await fetch(
+                    '/sumar',
+                    {
+                        method:'POST',
+                        headers:{
+                            'Content-type':'application/json'
+                        },
+                        body: JSON.stringify({numero1, numero2})
+                    }                    
+                )
+
+                let misDatos= await respuesta.json()
+
+                if(respuesta.ok){
+                    document.getElementById('resultado').textContent= misDatos.resultado
+                }else{
+                    document.getElementById('resultado').textContent='Datos erróneos'
+                }
+
+                
+            }
+        )
+    </script>
+    <script>
+        
+        document.getElementById('miFormulario').addEventListener(
+            'submit',
+            async (event)=>{
+                
+                event.preventDefault()
+
+                let numero1= parseFloat(document.getElementById('numero1').value)
+                let numero2= parseFloat(document.getElementById('numero2').value)
+
+                let respuesta= await fetch(
+                    '/restar',
+                    {
+                        method:'POST',
+                        headers:{
+                            'Content-type':'application/json'
+                        },
+                        body: JSON.stringify({numero1, numero2})
+                    }                    
+                )
+
+                let misDatos= await respuesta.json()
+
+                if(respuesta.ok){
+                    document.getElementById('resultado').textContent= misDatos.resultado
+                }else{
+                    document.getElementById('resultado').textContent='Datos erróneos'
+                }
+
+                
+            }
+        )
+    </script>
+    <script>
+        
+        document.getElementById('miFormulario').addEventListener(
+            'submit',
+            async (event)=>{
+                
+                event.preventDefault()
+
+                let numero1= parseFloat(document.getElementById('numero1').value)
+                let numero2= parseFloat(document.getElementById('numero2').value)
+
+                let respuesta= await fetch(
+                    '/dividir',
+                    {
+                        method:'POST',
+                        headers:{
+                            'Content-type':'application/json'
+                        },
+                        body: JSON.stringify({numero1, numero2})
+                    }                    
+                )
+
+                let misDatos= await respuesta.json()
+
+                if(respuesta.ok){
+                    document.getElementById('resultado').textContent= misDatos.resultado
+                }else{
+                    document.getElementById('resultado').textContent='Datos erróneos'
+                }
+
+                
+            }
+        )
+    </script>
+    <script>
+        
+        document.getElementById('miFormulario').addEventListener(
+            'submit',
+            async (event)=>{
+                
+                event.preventDefault()
+
+                let numero1= parseFloat(document.getElementById('numero1').value)
+                let numero2= parseFloat(document.getElementById('numero2').value)
+
+                let respuesta= await fetch(
+                    '/multiplicar',
+                    {
+                        method:'POST',
+                        headers:{
+                            'Content-type':'application/json'
+                        },
+                        body: JSON.stringify({numero1, numero2})
+                    }                    
+                )
+
+                let misDatos= await respuesta.json()
+
+                if(respuesta.ok){
+                    document.getElementById('resultado').textContent= misDatos.resultado
+                }else{
+                    document.getElementById('resultado').textContent='Datos erróneos'
+                }
+
+                
+            }
+        )
+    </script>
+</body>
+</html>
